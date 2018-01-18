@@ -14,15 +14,39 @@ public class PuzzleGameManager : MonoBehaviour {
 	private int level;
 	private string selectedPuzzle;
 
-	public void PickAPuzzle () {
-//		Debug.Log ("The selected button is " + UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
-		int index = int.Parse (UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
+	private bool firstGuess, secondGuess;
+	private int firstGuessIndex, secondGuessIndex;
+	private string firstGuessPuzzle, secondGuessPuzzle;
 
-		StartCoroutine (TurnPuzzleButtonUp (
-			puzzleButtonsAnimators[index],
-			puzzleButtons[index],
-			gamePuzzleSprites[index]
-		));
+	public void PickAPuzzle () {
+
+		if (!firstGuess) {
+			firstGuess = true;
+
+			firstGuessIndex = int.Parse (UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
+
+			firstGuessPuzzle = gamePuzzleSprites [firstGuessIndex].name;
+
+			StartCoroutine (TurnPuzzleButtonUp (puzzleButtonsAnimators [firstGuessIndex],
+				puzzleButtons [firstGuessIndex],
+				gamePuzzleSprites [firstGuessIndex]
+			));
+
+		} else if (!secondGuess) {
+			secondGuess = true;
+
+			secondGuessIndex = int.Parse (UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
+
+			secondGuessPuzzle = gamePuzzleSprites [secondGuessIndex].name;
+
+			StartCoroutine (TurnPuzzleButtonUp (puzzleButtonsAnimators [secondGuessIndex],
+				puzzleButtons [secondGuessIndex],
+				gamePuzzleSprites [secondGuessIndex]
+			));
+
+			Debug.Log ("First guess puzzle name is: " + firstGuessPuzzle + " Second guess puzzle name is: " + secondGuessPuzzle);
+		}
+
 	}
 
 	IEnumerator TurnPuzzleButtonUp (Animator anim, Button btn, Sprite puzzleImage) {
