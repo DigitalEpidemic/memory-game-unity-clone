@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 46604457}
   - component: {fileID: 46604460}
   - component: {fileID: 46604461}
+  - component: {fileID: 46604462}
   m_Layer: 0
   m_Name: Puzzle Game Controller
   m_TagString: Untagged
@@ -421,7 +422,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8719492019604ee4c94838a67207013d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamePuzzles: []
+  puzzleGameManager: {fileID: 46604462}
+--- !u!114 &46604462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 46604456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e363b752a74ca64f84620a124d96f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamePuzzleSprites: []
 --- !u!1 &89961577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,6 +1572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c018fc3e9404e4fafa49dc8847bc55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleGameManager: {fileID: 46604462}
   selectLevel: {fileID: 1605232070}
   selectPuzzleMenuPanel: {fileID: 1580346286}
   puzzleLevelSelectPanel: {fileID: 1745390083}
@@ -5308,6 +5322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5dda4634cdb7c43b6e8be8595a0a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleGameManager: {fileID: 46604462}
   loadPuzzleGame: {fileID: 46604457}
   selectPuzzleMenuPanel: {fileID: 1580346286}
   puzzleLevelSelectPanel: {fileID: 1745390083}

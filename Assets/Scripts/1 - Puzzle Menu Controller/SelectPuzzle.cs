@@ -5,6 +5,9 @@ using UnityEngine;
 public class SelectPuzzle : MonoBehaviour {
 
 	[SerializeField]
+	private PuzzleGameManager puzzleGameManager;
+
+	[SerializeField]
 	private SelectLevel selectLevel;
 
 	[SerializeField]
@@ -17,7 +20,7 @@ public class SelectPuzzle : MonoBehaviour {
 
 	public void SelectedPuzzle () {
 		selectedPuzzle = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
-
+		puzzleGameManager.SetSelectedPuzzle (selectedPuzzle);
 		selectLevel.SetSelectedPuzzle (selectedPuzzle);
 
 		StartCoroutine (ShowPuzzleLevelSelectMenu ());
