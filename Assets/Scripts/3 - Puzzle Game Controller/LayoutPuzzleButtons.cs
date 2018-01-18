@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class LayoutPuzzleButtons : MonoBehaviour {
 
 	[SerializeField]
+	private SetupPuzzleGame setupPuzzleGame;
+
+	[SerializeField]
 	private Transform puzzleLevel1, puzzleLevel2, puzzleLevel3, puzzleLevel4, puzzleLevel5;
 
 	public List<Button> level1Buttons, level2Buttons, level3Buttons, level4Buttons, level5Buttons;
@@ -20,6 +23,8 @@ public class LayoutPuzzleButtons : MonoBehaviour {
 	public void LayoutButtons (int level, string puzzle) {
 		this.puzzleLevel = level;
 		this.selectedPuzzle = puzzle;
+
+		setupPuzzleGame.SetLevelAndPuzzle (puzzleLevel, selectedPuzzle);
 
 		LayoutPuzzle ();
 	}
