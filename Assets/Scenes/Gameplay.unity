@@ -317,6 +317,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 46604458}
+  - component: {fileID: 46604459}
   - component: {fileID: 46604457}
   m_Layer: 0
   m_Name: Puzzle Game Controller
@@ -361,6 +362,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &46604459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 46604456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51019e5f1988ac24dbb8bbce8981d2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleButton: {fileID: 114279743406824502, guid: 98e231f1fa88ace4ebddc31d6aecc0e9,
+    type: 2}
 --- !u!1 &89961577
 GameObject:
   m_ObjectHideFlags: 0
