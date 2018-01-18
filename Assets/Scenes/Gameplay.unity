@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 46604458}
   - component: {fileID: 46604459}
   - component: {fileID: 46604457}
+  - component: {fileID: 46604460}
   m_Layer: 0
   m_Name: Puzzle Game Controller
   m_TagString: Untagged
@@ -337,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996a608021b8a85408612291343c8923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layoutPuzzleButtons: {fileID: 46604460}
   puzzleLevelSelectPanel: {fileID: 1745390083}
   puzzleLevelSelectAnim: {fileID: 1745390085}
   puzzleGamePanel1: {fileID: 1537850041}
@@ -373,8 +375,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51019e5f1988ac24dbb8bbce8981d2b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layoutPuzzleButtons: {fileID: 46604460}
   puzzleButton: {fileID: 114279743406824502, guid: 98e231f1fa88ace4ebddc31d6aecc0e9,
     type: 2}
+--- !u!114 &46604460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 46604456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446cafaac9861694abf4fb51b1b1b260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleLevel1: {fileID: 187139171}
+  puzzleLevel2: {fileID: 784088444}
+  puzzleLevel3: {fileID: 570718378}
+  puzzleLevel4: {fileID: 1732125150}
+  puzzleLevel5: {fileID: 1335307696}
+  level1Buttons: []
+  level2Buttons: []
+  level3Buttons: []
+  level4Buttons: []
+  level5Buttons: []
+  level1Anims: []
+  level2Anims: []
+  level3Anims: []
+  level4Anims: []
+  level5Anims: []
+  puzzleButtonsBacksideImages:
+  - {fileID: 21300004, guid: d90d00687f2e36d47b8601d7d19d453d, type: 3}
+  - {fileID: 21300008, guid: d90d00687f2e36d47b8601d7d19d453d, type: 3}
+  - {fileID: 21300002, guid: d90d00687f2e36d47b8601d7d19d453d, type: 3}
 --- !u!1 &89961577
 GameObject:
   m_ObjectHideFlags: 0
