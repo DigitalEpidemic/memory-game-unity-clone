@@ -11,6 +11,9 @@ public class SelectPuzzle : MonoBehaviour {
 	private SelectLevel selectLevel;
 
 	[SerializeField]
+	private LevelLocker levelLocker;
+
+	[SerializeField]
 	private GameObject selectPuzzleMenuPanel, puzzleLevelSelectPanel;
 
 	[SerializeField]
@@ -21,6 +24,7 @@ public class SelectPuzzle : MonoBehaviour {
 	public void SelectedPuzzle () {
 		selectedPuzzle = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
 		puzzleGameManager.SetSelectedPuzzle (selectedPuzzle);
+		levelLocker.CheckWhichLevelsAreUnlocked (selectedPuzzle);
 		selectLevel.SetSelectedPuzzle (selectedPuzzle);
 
 		StartCoroutine (ShowPuzzleLevelSelectMenu ());
