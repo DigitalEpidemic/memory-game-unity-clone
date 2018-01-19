@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PuzzleGameManager : MonoBehaviour {
 
+	[SerializeField]
+	private GameFinished gameFinished;
+
 	private List<Button> puzzleButtons = new List<Button> ();
 	private List<Animator> puzzleButtonsAnimators = new List<Animator> ();
 
@@ -23,6 +26,8 @@ public class PuzzleGameManager : MonoBehaviour {
 	private int countTryGuesses;
 	private int countCorrectGuesses;
 	private int gameGuesses;
+
+	private int stars = 0;
 
 	public void PickAPuzzle () {
 
@@ -82,8 +87,58 @@ public class PuzzleGameManager : MonoBehaviour {
 		countCorrectGuesses++;
 
 		if (countCorrectGuesses == gameGuesses) {
-			Debug.Log ("Game Ended. No more puzzles! :D");
+//			Debug.Log ("Game Ended. No more puzzles! :D");
+			CheckHowManyGuesses ();
 		}
+	}
+
+	void CheckHowManyGuesses () {
+		int howManyGuesses = 0;
+
+		switch (level) {
+		case 0:
+			howManyGuesses = 5;
+			break;
+
+		case 1:
+			howManyGuesses = 10;
+			break;
+
+		case 2:
+			howManyGuesses = 15;
+			break;
+
+		case 3:
+			howManyGuesses = 20;
+			break;
+
+		case 4:
+			howManyGuesses = 25;
+			break;
+		}
+
+		if (countTryGuesses < howManyGuesses) {
+			gameFinished.ShowGameFinishedPanel (3);
+			stars = 3;
+		} else if (countTryGuesses < (howManyGuesses + 5)) {
+			gameFinished.ShowGameFinishedPanel (2);
+			stars = 2;
+		} else {
+			gameFinished.ShowGameFinishedPanel (1);
+			stars = 1;
+		}
+
+	}
+
+	public List<Animator> ResetGameplay () {
+		firstGuess = secondGuess = false;
+
+		countTryGuesses = 0;
+		countCorrectGuesses = 0;
+
+		gameFinished.HideGameFinishedPanel (stars);
+
+		return puzzleButtonsAnimators;
 	}
 
 	IEnumerator TurnPuzzleButtonUp (Animator anim, Button btn, Sprite puzzleImage) {

@@ -341,6 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996a608021b8a85408612291343c8923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleGameManager: {fileID: 46604462}
   layoutPuzzleButtons: {fileID: 46604460}
   puzzleLevelSelectPanel: {fileID: 1745390083}
   puzzleLevelSelectAnim: {fileID: 1745390085}
@@ -435,6 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e363b752a74ca64f84620a124d96f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameFinished: {fileID: 46604463}
   gamePuzzleSprites: []
 --- !u!114 &46604463
 MonoBehaviour:

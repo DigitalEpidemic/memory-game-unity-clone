@@ -5,6 +5,9 @@ using UnityEngine;
 public class LoadPuzzleGame : MonoBehaviour {
 
 	[SerializeField]
+	private PuzzleGameManager puzzleGameManager;
+
+	[SerializeField]
 	private LayoutPuzzleButtons layoutPuzzleButtons;
 
 	[SerializeField]
@@ -22,6 +25,8 @@ public class LoadPuzzleGame : MonoBehaviour {
 	private int puzzleLevel;
 
 	private string selectedPuzzle;
+
+	private List<Animator> anims;
 
 	public void LoadPuzzle (int level, string puzzle) {
 		this.puzzleLevel = level;
@@ -52,6 +57,8 @@ public class LoadPuzzleGame : MonoBehaviour {
 	}
 
 	public void BackToPuzzleLevelSelectMenu () {
+
+		anims = puzzleGameManager.ResetGameplay ();
 		
 		switch (puzzleLevel) {
 
@@ -80,6 +87,13 @@ public class LoadPuzzleGame : MonoBehaviour {
 		puzzleLevelSelectAnim.Play ("SlideIn");
 		puzzleGamePanelAnim.Play ("SlideOut");
 		yield return new WaitForSeconds (1f);
+
+		foreach (Animator anim in anims) {
+			anim.Play ("Idle");
+		}
+
+		yield return new WaitForSeconds (0.5f);
+
 		puzzleGamePanel.SetActive (false);
 	}
 

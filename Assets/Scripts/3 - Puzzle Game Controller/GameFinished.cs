@@ -10,17 +10,13 @@ public class GameFinished : MonoBehaviour {
 	[SerializeField]
 	private Animator gameFinishedAnim, star1Anim, star2Anim, star3Anim, textAnim;
 
-	void Start () {
-		ShowGameFinishedPanel (3);
-	}
-
 	public void ShowGameFinishedPanel (int stars) {
 		StartCoroutine (ShowPanel (stars));
 	}
 
-	public void HideGameFinishedPanel () {
+	public void HideGameFinishedPanel (int stars) {
 		if (gameFinishedPanel.activeInHierarchy) {
-			StartCoroutine (HidePanel ());
+			StartCoroutine (HidePanel (stars));
 		}
 	}
 
@@ -62,13 +58,24 @@ public class GameFinished : MonoBehaviour {
 		}
 	}
 
-	IEnumerator HidePanel () {
+	IEnumerator HidePanel (int stars) {
 		gameFinishedAnim.Play ("FadeOut");
-
-		star1Anim.Play ("FadeOut");
-		star2Anim.Play ("FadeOut");
-		star3Anim.Play ("FadeOut");
 		textAnim.Play ("FadeOut");
+
+		switch (stars) {
+		case 1:
+			star1Anim.Play ("FadeOut");
+			break;
+		case 2:
+			star1Anim.Play ("FadeOut");
+			star2Anim.Play ("FadeOut");
+			break;
+		case 3:
+			star1Anim.Play ("FadeOut");
+			star2Anim.Play ("FadeOut");
+			star3Anim.Play ("FadeOut");
+			break;
+		}
 
 		yield return new WaitForSeconds (1.5f);
 		gameFinishedPanel.SetActive (false);
