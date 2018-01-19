@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 46604460}
   - component: {fileID: 46604461}
   - component: {fileID: 46604462}
+  - component: {fileID: 46604463}
   m_Layer: 0
   m_Name: Puzzle Game Controller
   m_TagString: Untagged
@@ -435,6 +436,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePuzzleSprites: []
+--- !u!114 &46604463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 46604456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f5a04034c52d2646ab3adec7aa96be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameFinishedPanel: {fileID: 738765166}
+  gameFinishedAnim: {fileID: 738765170}
+  star1Anim: {fileID: 1849273728}
+  star2Anim: {fileID: 336958011}
+  star3Anim: {fileID: 308521921}
+  textAnim: {fileID: 1919287987}
 --- !u!1 &89961577
 GameObject:
   m_ObjectHideFlags: 0
@@ -2991,7 +3009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &738765167
 RectTransform:
   m_ObjectHideFlags: 0
