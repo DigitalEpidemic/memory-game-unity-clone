@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleGameManager: {fileID: 46604462}
+  levelLocker: {fileID: 1605232072}
   layoutPuzzleButtons: {fileID: 46604460}
   puzzleLevelSelectPanel: {fileID: 1745390083}
   puzzleLevelSelectAnim: {fileID: 1745390085}
@@ -436,6 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e363b752a74ca64f84620a124d96f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleGameSaver: {fileID: 888564724}
   gameFinished: {fileID: 46604463}
   gamePuzzleSprites: []
 --- !u!114 &46604463
@@ -576,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.058823533, g: 0.45882356, b: 0.7568628, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1768,6 +1770,7 @@ MonoBehaviour:
   puzzleGameManager: {fileID: 46604462}
   selectLevel: {fileID: 1605232070}
   levelLocker: {fileID: 1605232072}
+  starsLocker: {fileID: 1605232073}
   selectPuzzleMenuPanel: {fileID: 1580346286}
   puzzleLevelSelectPanel: {fileID: 1745390083}
   selectPuzzleMenuAnim: {fileID: 1580346290}
@@ -5636,6 +5639,7 @@ GameObject:
   - component: {fileID: 1605232071}
   - component: {fileID: 1605232070}
   - component: {fileID: 1605232072}
+  - component: {fileID: 1605232073}
   m_Layer: 0
   m_Name: Puzzle Level Controller
   m_TagString: Untagged
@@ -5655,6 +5659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleGameManager: {fileID: 46604462}
+  levelLocker: {fileID: 1605232072}
   loadPuzzleGame: {fileID: 46604457}
   selectPuzzleMenuPanel: {fileID: 1580346286}
   puzzleLevelSelectPanel: {fileID: 1745390083}
@@ -5685,6 +5690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleGameSaver: {fileID: 888564724}
+  starsLocker: {fileID: 1605232073}
   levelStarsHolder:
   - {fileID: 1995033353}
   - {fileID: 1034654505}
@@ -5697,6 +5703,41 @@ MonoBehaviour:
   - {fileID: 1003245066}
   - {fileID: 161128105}
   - {fileID: 1610087494}
+--- !u!114 &1605232073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1605232069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdfe714000260594cbe43c730013b70f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleGameSaver: {fileID: 888564724}
+  level1Stars:
+  - {fileID: 550310516}
+  - {fileID: 561515296}
+  - {fileID: 1076619991}
+  level2Stars:
+  - {fileID: 1465108991}
+  - {fileID: 923790318}
+  - {fileID: 1947460194}
+  level3Stars:
+  - {fileID: 1860146552}
+  - {fileID: 614187261}
+  - {fileID: 1532185318}
+  level4Stars:
+  - {fileID: 1020540809}
+  - {fileID: 2103533892}
+  - {fileID: 1713397718}
+  level5Stars:
+  - {fileID: 1993364541}
+  - {fileID: 859352533}
+  - {fileID: 165006725}
+  candyPuzzleLevelStars: 
+  transportPuzzleLevelStars: 
+  fruitPuzzleLevelStars: 
 --- !u!1 &1610087494
 GameObject:
   m_ObjectHideFlags: 0

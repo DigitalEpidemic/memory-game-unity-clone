@@ -8,6 +8,9 @@ public class LevelLocker : MonoBehaviour {
 	private PuzzleGameSaver puzzleGameSaver;
 
 	[SerializeField]
+	private StarsLocker starsLocker;
+
+	[SerializeField]
 	private GameObject[] levelStarsHolder;
 
 	[SerializeField]
@@ -35,6 +38,7 @@ public class LevelLocker : MonoBehaviour {
 			for (int i = 0; i < candyPuzzleLevels.Length; i++) {
 				if (candyPuzzleLevels [i]) {
 					levelStarsHolder [i].SetActive (true);
+					starsLocker.ActivateStars (i, selectedPuzzle);
 				} else {
 					levelsPadlocks [i].SetActive (true);
 				}
@@ -45,6 +49,7 @@ public class LevelLocker : MonoBehaviour {
 			for (int i = 0; i < transportPuzzleLevels.Length; i++) {
 				if (transportPuzzleLevels [i]) {
 					levelStarsHolder [i].SetActive (true);
+					starsLocker.ActivateStars (i, selectedPuzzle);
 				} else {
 					levelsPadlocks [i].SetActive (true);
 				}
@@ -55,6 +60,7 @@ public class LevelLocker : MonoBehaviour {
 			for (int i = 0; i < fruitPuzzleLevels.Length; i++) {
 				if (fruitPuzzleLevels [i]) {
 					levelStarsHolder [i].SetActive (true);
+					starsLocker.ActivateStars (i, selectedPuzzle);
 				} else {
 					levelsPadlocks [i].SetActive (true);
 				}

@@ -14,6 +14,9 @@ public class SelectPuzzle : MonoBehaviour {
 	private LevelLocker levelLocker;
 
 	[SerializeField]
+	private StarsLocker starsLocker;
+
+	[SerializeField]
 	private GameObject selectPuzzleMenuPanel, puzzleLevelSelectPanel;
 
 	[SerializeField]
@@ -22,6 +25,7 @@ public class SelectPuzzle : MonoBehaviour {
 	private string selectedPuzzle;
 
 	public void SelectedPuzzle () {
+		starsLocker.DeactivateStars ();
 		selectedPuzzle = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
 		puzzleGameManager.SetSelectedPuzzle (selectedPuzzle);
 		levelLocker.CheckWhichLevelsAreUnlocked (selectedPuzzle);
