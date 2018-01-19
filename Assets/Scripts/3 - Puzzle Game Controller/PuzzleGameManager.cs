@@ -14,6 +14,8 @@ public class PuzzleGameManager : MonoBehaviour {
 	private int level;
 	private string selectedPuzzle;
 
+	private Sprite puzzleBackgroundImage;
+
 	private bool firstGuess, secondGuess;
 	private int firstGuessIndex, secondGuessIndex;
 	private string firstGuessPuzzle, secondGuessPuzzle;
@@ -29,8 +31,7 @@ public class PuzzleGameManager : MonoBehaviour {
 
 			StartCoroutine (TurnPuzzleButtonUp (puzzleButtonsAnimators [firstGuessIndex],
 				puzzleButtons [firstGuessIndex],
-				gamePuzzleSprites [firstGuessIndex]
-			));
+				gamePuzzleSprites [firstGuessIndex]));
 
 		} else if (!secondGuess) {
 			secondGuess = true;
@@ -41,12 +42,33 @@ public class PuzzleGameManager : MonoBehaviour {
 
 			StartCoroutine (TurnPuzzleButtonUp (puzzleButtonsAnimators [secondGuessIndex],
 				puzzleButtons [secondGuessIndex],
-				gamePuzzleSprites [secondGuessIndex]
-			));
+				gamePuzzleSprites [secondGuessIndex]));
 
-			Debug.Log ("First guess puzzle name is: " + firstGuessPuzzle + " Second guess puzzle name is: " + secondGuessPuzzle);
+			StartCoroutine (CheckIfThePuzzlesMatch (puzzleBackgroundImage));
 		}
 
+	}
+
+	IEnumerator CheckIfThePuzzlesMatch (Sprite puzzleBackgroundImage) {
+		yield return new WaitForSeconds (1.7f);
+
+		if (firstGuessPuzzle == secondGuessPuzzle) {
+			puzzleButtonsAnimators [firstGuessIndex].Play ("FadeOut");
+			puzzleButtonsAnimators [secondGuessIndex].Play ("FadeOut");
+
+			// Increment score
+		} else {
+			StartCoroutine (TurnPuzzleButtonBack (puzzleButtonsAnimators [firstGuessIndex],
+				puzzleButtons [firstGuessIndex],
+				puzzleBackgroundImage));
+
+			StartCoroutine (TurnPuzzleButtonBack (puzzleButtonsAnimators [secondGuessIndex],
+				puzzleButtons [secondGuessIndex],
+				puzzleBackgroundImage));
+		}
+
+		yield return new WaitForSeconds (0.7f);
+		firstGuess = secondGuess = false;
 	}
 
 	IEnumerator TurnPuzzleButtonUp (Animator anim, Button btn, Sprite puzzleImage) {
@@ -71,6 +93,8 @@ public class PuzzleGameManager : MonoBehaviour {
 	public void SetupButtonsAndAnimators (List<Button> buttons, List<Animator> animators) {
 		this.puzzleButtons = buttons;
 		this.puzzleButtonsAnimators = animators;
+
+		puzzleBackgroundImage = puzzleButtons [0].image.sprite;
 
 		AddListeners ();
 	}
