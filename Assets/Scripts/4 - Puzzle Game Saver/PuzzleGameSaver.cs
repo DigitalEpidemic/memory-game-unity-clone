@@ -82,7 +82,7 @@ public class PuzzleGameSaver : MonoBehaviour {
 
 	}
 
-	void SaveGameData () {
+	public void SaveGameData () {
 		FileStream file = null;
 
 		try { 
