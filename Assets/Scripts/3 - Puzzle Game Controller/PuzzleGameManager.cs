@@ -124,14 +124,17 @@ public class PuzzleGameManager : MonoBehaviour {
 			gameFinished.ShowGameFinishedPanel (3);
 			stars = 3;
 			puzzleGameSaver.Save (level, selectedPuzzle, 3);
+			puzzleGameSaver.SaveGameData ();
 		} else if (countTryGuesses < (howManyGuesses + 5)) {
 			gameFinished.ShowGameFinishedPanel (2);
 			stars = 2;
 			puzzleGameSaver.Save (level, selectedPuzzle, 2);
+			puzzleGameSaver.SaveGameData ();
 		} else {
 			gameFinished.ShowGameFinishedPanel (1);
 			stars = 1;
 			puzzleGameSaver.Save (level, selectedPuzzle, 1);
+			puzzleGameSaver.SaveGameData ();
 		}
 
 	}
